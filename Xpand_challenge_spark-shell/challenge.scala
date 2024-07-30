@@ -32,8 +32,10 @@ df1.show()
 //ex2
 
 val filtered_df_googleplaystore: DataFrame = df_googleplaystore.filter("Rating >= 40.0").orderBy(desc("Rating"))
-
-filtered_df_googleplaystore.write.format("csv").option("delimiter", "§").save(".\\output\\filtered_df_googleplaystore_ex2\\filteredGooglePlaystore.csv")
+    filtered_df_googleplaystore.write
+    .option("delimiter", "§")
+    .option("header", "true")  // Include header in the output CSV
+    .csv(".\\output\\filtered_df_googleplaystore_ex2")
 
 //ex3
 
